@@ -363,15 +363,3 @@ setInterval(() => {
     });
   });
 }, 60000); // ✅ เช็กทุก 1 นาที
-
-function showNotification(booking, diff) {
-  const title = `📢 แจ้งเตือนล่วงหน้า ${diff / 60} ชั่วโมง`;
-  const body = `คุณ ${booking.name} คุณมีประชุมห้อง ${booking.room} เวลา ${booking.startTime} - ${booking.endTime}\nเรื่อง: ${booking.note || 'ไม่ระบุ'}`;
-  new Notification(title, { body });
-}
-
-function markAsNotified(bookingId, diff) {
-  const field = diff === 120 ? 'notified_120' : 'notified_60';
-  const bookingRef = ref(database, `bookings/${bookingId}`);
-  update(bookingRef, { [field]: true });
-}
