@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>แดชบอร์ดผู้พัฒนา</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+  <!-- Firebase App (core SDK) -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js"></script>
+  <!-- Firebase Database -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js"></script>
+  <script type="module" src="goddata.js"></script>
+</head>
+<body class="page-admin">
+  <img src="img/logo2025.jpg" alt="โลโก้บริษัท" class="logoadmin">
+<div class="admin-container">
+  <header>
+    <h1>แดชบอร์ดผู้พัฒนา</h1>
+    <button onclick="logout()">ออกจากระบบ</button>
+  </header>
+
+  <section class="stats-row">
+    <div class="stats-box">
+      <h2>สถิติการใช้งาน</h2>
+      <p>จำนวนการจองทั้งหมด: <span id="totalCount">0</span></p>
+      <p>ห้องข้างล่าง: <span id="roomA">0</span> ครั้ง</p>
+      <p>ห้องข้างบน: <span id="roomB">0</span> ครั้ง</p>
+    </div>
+
+    <div class="chart-box">
+      <h3>สัดส่วนการใช้ห้องประชุม</h3>
+      <canvas id="roomChart" width="200" height="200"></canvas>
+    </div>
+  </section>
+
+  <section class="booking-stats">
+    <h3>สถิติการจอง</h3>
+    <label for="timeRange">เลือกช่วงเวลา:</label>
+    <select id="timeRange">
+      <option value="daily">รายวัน</option>
+      <option value="monthly">รายเดือน</option>
+      <option value="yearly">รายปี</option>
+    </select>
+    <canvas id="bookingChart" width="1000" height="600"></canvas>
+  </section> 
+<div class="booking-header" style="display: flex; justify-content: space-between; align-items: center; margin-top: 32px;">  
+    <button id="toggleBookingBtn">📂 แสดงข้อมูลการจอง</button>
+</div>
+  <div id="bookingWrapper" style="display: none;">
+    <section id="bookingData" class="booking-table-container">
+      <input type="text" id="searchInput" placeholder="🔍 ค้นหาชื่อผู้ใช้" style="margin-bottom: 16px; padding: 10px; width: 100%; max-width: 400px; border-radius: 8px;">
+      <table id="bookingTable">
+        <thead>
+          <tr>
+            <th>ชื่อ</th>
+            <th>วันที่</th>
+            <th>เวลา</th>
+            <th>ห้อง</th>
+            <th>หมายเหตุ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- ข้อมูลจะถูกเติมผ่าน JS -->
+        </tbody>
+      </table>
+    </section>
+  </div>
+
+  <section id="manualAdd">
+    <h2>เพิ่มการจองใหม่</h2>
+    <form id="addForm">
+      <input type="text" id="name" placeholder="ชื่อผู้ใช้">
+      <input type="date" id="date">
+      <input type="time" id="startTime">
+      <input type="time" id="endTime">
+      <select id="room">
+        <option value="A">ห้องข้างล่าง</option>
+        <option value="B">ห้องข้างบน</option>
+      </select>
+      <label for="note"></label>
+      <textarea id="note" class="adminform-control" rows="4" placeholder="หมายเหตุการใช้ห้องประชุม:"></textarea>
+      <button type="submit">เพิ่มข้อมูล</button>
+    </form>
+    <center><button id="exportBtn" style="margin: 16px 0;">📤 Export ข้อมูลเป็น Excel</button></center>
+  </section>
+</div>
+  <div id="toast"></div>
+</body>
+</html>
