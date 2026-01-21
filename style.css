@@ -480,7 +480,7 @@ canvas {
   margin-bottom: 16px; /* ✅ ระยะห่างจากหัวข้อ */
   display: block;
   margin-left: 0;
-  margin-right: 16px; /* ✅ จัดซ้าย */
+  margin-right: 1px; /* ✅ จัดซ้าย */
   margin: 0 0 16px 300px;
 }
 
@@ -621,6 +621,7 @@ html, body {
   overflow-x: hidden;
   box-sizing: border-box;
 }
+
 
 
 
