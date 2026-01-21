@@ -198,12 +198,11 @@ document.getElementById("searchInput").addEventListener("input", function () {
     const cells = row.querySelectorAll("td");
     let combinedText = "";
 
-    // รวมข้อความจากทุกเซลล์ในแถว (ชื่อ, วันที่, เวลา, ห้อง, หมายเหตุ)
-    cells.forEach(cell => {
-      combinedText += cell.textContent.toLowerCase() + " ";
-    });
+    // รวมเฉพาะ 5 ช่องแรก (ชื่อ, วันที่, เวลา, ห้อง, หมายเหตุ)
+    for (let i = 0; i < 5; i++) {
+      combinedText += (cells[i]?.textContent || "").toLowerCase() + " ";
+    }
 
-    // ถ้าคำค้นพบในข้อความรวม แสดงแถวนี้
     const match = combinedText.includes(keyword);
     row.style.display = match ? "" : "none";
   });
@@ -369,5 +368,6 @@ setInterval(() => {
     });
   });
 }, 60000); // ✅ เช็กทุก 1 นาที
+
 
 
