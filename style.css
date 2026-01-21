@@ -606,3 +606,21 @@ textarea.adminform-control{ /* ✅ปรับหมายเหตุแอด�
     font-size: 20px;
   }
 }
+
+button {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+  width: 100%;
+  max-width: 100%;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
