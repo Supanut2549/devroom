@@ -622,7 +622,6 @@ button {
   text-overflow: ellipsis;
   display: inline-block;
   width: 50%;
-  max-width: 100%;
   font-size: 16px;
   line-height: 1.4;
 }
@@ -632,4 +631,5 @@ html, body {
   overflow-x: hidden;
   box-sizing: border-box;
 }
+
 
