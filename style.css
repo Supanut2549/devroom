@@ -151,7 +151,10 @@ button:hover {
 }
 
 #bookingTable {
-  min-width: 600px;
+  width: 100%;
+  min-width: unset; /* ลบ min-width: 600px */
+  overflow-x: auto;
+  display: block;
 }
 
 /* ✅ สไตล์เฉพาะหน้าแอดมิน */
@@ -339,52 +342,46 @@ canvas {
   text-align: center;
 }
 
-  .main-layout {
+/*ปรับจอให้ตรงรุ่น*/
+@media (max-width: 768px) {
+  .stats-row {
     flex-direction: column;
-    gap: 16px;
+    align-items: center;
   }
 
-  .left-panel,
-  .right-panel {
+  .stats-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+  }
+
+  .stats-box, .chart-box {
     width: 100%;
+    max-width: 320px;
   }
 
-  .booking-wrapper {
-    flex-direction: column;
-    padding: 12px;
+  .admin-container {
+    padding: 0 12px;
   }
 
-  .booking-form-section,
-  .booking-table-section {
-    width: 100%;
-    max-width: 100%;
+  .admin-container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
   }
 
-  #bookingTable {
+  #bookingTable th, #bookingTable td {
     font-size: 14px;
-    min-width: unset;
-    width: 100%;
-    overflow-x: auto;
-    display: block;
-  }
-
-  #bookingTable th,
-  #bookingTable td {
     padding: 8px;
-    font-size: 13px;
-    word-break: break-word;
   }
 
-  .booking-card {
+  #addForm input,
+  #addForm select,
+  #addForm button {
     font-size: 14px;
-    padding: 10px;
   }
-
-  textarea.form-control,
-  textarea.adminform-control {
-    min-width: 100%;
-  }
-
+}
 
 /*ย่อขยายข้อมูล*/
 #bookingTable tbody tr:not(.expanded) td:nth-child(n+2):not(:last-child) {
@@ -532,9 +529,13 @@ textarea.adminform-control{ /* ✅ปรับหมายเหตุแอด�
 .booking-card {
   background: #f9f9f9;
   border-left: 6px solid #42a5f5;
-  padding: 12px 16px;
-  border-radius: 8px;
+  padding: 16px;
+  border-radius: 12px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  min-height: 120px; /* ✅ ความสูงขั้นต่ำให้เท่ากัน */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .main-layout {
@@ -547,20 +548,25 @@ textarea.adminform-control{ /* ✅ปรับหมายเหตุแอด�
 .left-panel {
   flex: 1;
 }
-
 .right-panel {
   flex: 1;
   background-color: rgba(255, 255, 255, 0.6);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  padding: 16px;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  margin-bottom: 40px; /* ✅ เพิ่มระยะห่างด้านล่างให้เท่ากัน */
+}
+
+.right-panel h2 {
+  color: #000000;
+  font-size: 22px;
+  margin-bottom: 20px;
 }
 
 .booking-list {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
 }
 
 .booking-card {
@@ -583,6 +589,9 @@ textarea.adminform-control{ /* ✅ปรับหมายเหตุแอด�
   .left-panel,
   .right-panel {
     width: 100%;
+    padding-left: 16px; 
+    padding-right: 16px; 
+    box-sizing: border-box;
   }
 
   .booking-card {
@@ -623,4 +632,3 @@ html, body {
   overflow-x: hidden;
   box-sizing: border-box;
 }
-
