@@ -195,10 +195,15 @@ document.getElementById("searchInput").addEventListener("input", function () {
   const rows = document.querySelectorAll("#bookingTable tbody tr");
 
   rows.forEach(row => {
-    const nameCell = row.querySelector("td:nth-child(1)").textContent.toLowerCase();
-    const dateCell = row.querySelector("td:nth-child(2)").textContent.toLowerCase();
+    const name = row.querySelector("td:nth-child(1)")?.textContent.toLowerCase() || "";
+    const date = row.querySelector("td:nth-child(2)")?.textContent.toLowerCase() || "";
+    const time = row.querySelector("td:nth-child(3)")?.textContent.toLowerCase() || "";
 
-    const match = nameCell.includes(keyword) || dateCell.includes(keyword);
+    const match =
+      name.includes(keyword) ||
+      date.includes(keyword) ||
+      time.includes(keyword);
+
     row.style.display = match ? "" : "none";
   });
 });
@@ -363,3 +368,4 @@ setInterval(() => {
     });
   });
 }, 60000); // ✅ เช็กทุก 1 นาที
+
