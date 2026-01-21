@@ -67,20 +67,12 @@ row.appendChild(detailCell);
 }
 
 // ✅ ลบข้อมูล
-window.deleteBooking = function(id) {
-  const bookingRef = ref(database, "bookings/" + id);
-  remove(bookingRef)
-    .then(() => showToast("🗑️ ลบข้อมูลเรียบร้อย"))
-    .catch((err) => {
-      console.error("ลบไม่สำเร็จ:", err);
-      showToast("❌ ลบข้อมูลไม่สำเร็จ", true);
-    });
-};
-
-// ✅ แก้ไขข้อมูล
 window.editBooking = function(id) {
-  const booking = latestData[id];
-  if (!booking) return;
+  const booking = latestData?.[id];
+  if (!booking) {
+    showToast("❌ ไม่พบข้อมูลที่ต้องการแก้ไข", true);
+    return;
+  }
 
   const newName = prompt("ชื่อใหม่:", booking.name);
   const newDate = prompt("วันที่ใหม่ (YYYY-MM-DD):", booking.date);
@@ -89,7 +81,6 @@ window.editBooking = function(id) {
   const newRoom = prompt("ห้องใหม่ (A หรือ B):", booking.room);
   const newNote = prompt("หมายเหตุใหม่:", booking.note || "");
 
-  // ✅ สร้าง object ที่จะอัปเดตเฉพาะช่องที่มีการกรอก
   const updates = {};
   if (newName && newName !== booking.name) updates.name = newName;
   if (newDate && newDate !== booking.date) updates.date = newDate;
@@ -389,6 +380,7 @@ setInterval(() => {
     });
   });
 }, 60000); // ✅ เช็กทุก 1 นาที
+
 
 
 
