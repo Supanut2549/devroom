@@ -195,15 +195,16 @@ document.getElementById("searchInput").addEventListener("input", function () {
   const rows = document.querySelectorAll("#bookingTable tbody tr");
 
   rows.forEach(row => {
-    const name = row.querySelector("td:nth-child(1)")?.textContent.toLowerCase() || "";
-    const date = row.querySelector("td:nth-child(2)")?.textContent.toLowerCase() || "";
-    const time = row.querySelector("td:nth-child(3)")?.textContent.toLowerCase() || "";
+    const cells = row.querySelectorAll("td");
+    let combinedText = "";
 
-    const match =
-      name.includes(keyword) ||
-      date.includes(keyword) ||
-      time.includes(keyword);
+    // รวมข้อความจากทุกเซลล์ในแถว (ชื่อ, วันที่, เวลา, ห้อง, หมายเหตุ)
+    cells.forEach(cell => {
+      combinedText += cell.textContent.toLowerCase() + " ";
+    });
 
+    // ถ้าคำค้นพบในข้อความรวม แสดงแถวนี้
+    const match = combinedText.includes(keyword);
     row.style.display = match ? "" : "none";
   });
 });
@@ -368,4 +369,5 @@ setInterval(() => {
     });
   });
 }, 60000); // ✅ เช็กทุก 1 นาที
+
 
