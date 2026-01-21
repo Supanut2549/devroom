@@ -79,16 +79,37 @@ window.deleteBooking = function(id) {
 
 // ✅ แก้ไขข้อมูล
 window.editBooking = function(id) {
-  const newName = prompt("ชื่อใหม่:");
-  if (newName) {
-    const bookingRef = ref(database, "bookings/" + id);
-    update(bookingRef, { name: newName })
-      .then(() => showToast("✏️ แก้ไขชื่อเรียบร้อย"))
-      .catch((err) => {
-        console.error("แก้ไขไม่สำเร็จ:", err);
-        showToast("❌ แก้ไขไม่สำเร็จ", true);
-      });
+  const booking = latestData[id];
+  if (!booking) return;
+
+  const newName = prompt("ชื่อใหม่:", booking.name);
+  const newDate = prompt("วันที่ใหม่ (YYYY-MM-DD):", booking.date);
+  const newStartTime = prompt("เวลาเริ่มต้นใหม่ (HH:MM):", booking.startTime);
+  const newEndTime = prompt("เวลาสิ้นสุดใหม่ (HH:MM):", booking.endTime);
+  const newRoom = prompt("ห้องใหม่ (A หรือ B):", booking.room);
+  const newNote = prompt("หมายเหตุใหม่:", booking.note || "");
+
+  // ✅ สร้าง object ที่จะอัปเดตเฉพาะช่องที่มีการกรอก
+  const updates = {};
+  if (newName && newName !== booking.name) updates.name = newName;
+  if (newDate && newDate !== booking.date) updates.date = newDate;
+  if (newStartTime && newStartTime !== booking.startTime) updates.startTime = newStartTime;
+  if (newEndTime && newEndTime !== booking.endTime) updates.endTime = newEndTime;
+  if (newRoom && newRoom !== booking.room) updates.room = newRoom;
+  if (newNote !== null && newNote !== booking.note) updates.note = newNote;
+
+  if (Object.keys(updates).length === 0) {
+    showToast("ℹ️ ไม่มีการเปลี่ยนแปลง");
+    return;
   }
+
+  const bookingRef = ref(database, "bookings/" + id);
+  update(bookingRef, updates)
+    .then(() => showToast("✏️ แก้ไขข้อมูลเรียบร้อย"))
+    .catch((err) => {
+      console.error("แก้ไขไม่สำเร็จ:", err);
+      showToast("❌ แก้ไขไม่สำเร็จ", true);
+    });
 };
 
 // ✅ แสดงสถิติและกราฟ
@@ -368,6 +389,7 @@ setInterval(() => {
     });
   });
 }, 60000); // ✅ เช็กทุก 1 นาที
+
 
 
 
