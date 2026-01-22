@@ -625,10 +625,6 @@ textarea.adminform-control{ /* ✅ปรับหมายเหตุแอด�
     width: 100px;
   }
 
-  .logo.login { 
-    width: 200px; 
-  }
-
   h2 {
     font-size: 20px;
   }
@@ -682,3 +678,4 @@ html, body {
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
+
