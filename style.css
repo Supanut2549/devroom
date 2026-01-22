@@ -652,7 +652,7 @@ html, body {
 .page-login label,
 .page-login input,
 .page-login button {
-  font-size: 18px;
+  font-size: 30px;
 }
 
 @media (max-width: 768px) {
@@ -680,5 +680,6 @@ html, body {
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
+
 
 
