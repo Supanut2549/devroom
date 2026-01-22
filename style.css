@@ -626,7 +626,7 @@ textarea.adminform-control{ /* ✅ปรับหมายเหตุแอด�
   }
 
   .logo.login { 
-    width: 500px; 
+    width: 200px; 
   }
 
   h2 {
@@ -639,6 +639,7 @@ html, body {
   overflow-x: hidden;
   box-sizing: border-box;
 }
+
 
 
 
