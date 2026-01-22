@@ -662,8 +662,10 @@ html, body {
   .page-login input,
   .page-login button {
     font-size: 20px; /* ✅ ขยายฟ้อนต์บนมือถือ */
+  }
+  
   .logo.login {
-    width: 240px; /* ✅ ขนาดใหญ่ขึ้นแต่ไม่เกินจอ */
+    width: 150px; /* ✅ ขนาดใหญ่ขึ้นแต่ไม่เกินจอ */
     max-width: 90vw;
   }
 }
@@ -678,4 +680,5 @@ html, body {
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
+
 
