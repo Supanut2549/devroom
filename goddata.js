@@ -103,6 +103,21 @@ window.editBooking = function(id) {
     });
 };
 
+// ปุ่มลบข้อมูล
+window.deleteBooking = function(id) {
+  const confirmDelete = confirm("คุณแน่ใจหรือไม่ว่าต้องการลบข้อมูลนี้?");
+  if (!confirmDelete) return;
+
+  const bookingRef = ref(database, "bookings/" + id);
+  remove(bookingRef)
+    .then(() => showToast("🗑️ ลบข้อมูลเรียบร้อย"))
+    .catch((err) => {
+      console.error("ลบไม่สำเร็จ:", err);
+      showToast("❌ ลบข้อมูลไม่สำเร็จ", true);
+    });
+};
+
+
 // ✅ แสดงสถิติและกราฟ
 function showStats(data) {
   const total = Object.keys(data).length;
@@ -380,6 +395,7 @@ setInterval(() => {
     });
   });
 }, 60000); // ✅ เช็กทุก 1 นาที
+
 
 
 
