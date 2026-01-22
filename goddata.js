@@ -350,7 +350,7 @@ let latestData = null;
 
 // ดึงข้อมูลจาก path bookings ที่มี field date ตรงกับวันที่ปัจจุบัน
 function fetchBookingsForToday(date) {
-  const bookingsRef = ref(db, 'bookings');
+  const bookingsRef = ref(database, 'bookings');
   return get(bookingsRef).then(snapshot => {
     const bookings = [];
     snapshot.forEach(child => {
@@ -395,9 +395,3 @@ setInterval(() => {
     });
   });
 }, 60000); // ✅ เช็กทุก 1 นาที
-
-
-
-
-
-
