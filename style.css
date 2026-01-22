@@ -490,7 +490,7 @@ canvas {
 }
 
 .logo.login { /* ✅ปรับโลโก้หน้าหลัก */
-  width: 240px; /* ✅ ขนาดโลโก้ */
+  width: 120px; /* ✅ ขนาดโลโก้ */
   height: auto;
   margin-bottom: 16px; /* ✅ ระยะห่างจากหัวข้อ */
   display: block;
@@ -625,6 +625,10 @@ textarea.adminform-control{ /* ✅ปรับหมายเหตุแอด�
     width: 100px;
   }
 
+  .logo.login { 
+    width: 500px; 
+  }
+
   h2 {
     font-size: 20px;
   }
@@ -635,6 +639,7 @@ html, body {
   overflow-x: hidden;
   box-sizing: border-box;
 }
+
 
 
 
