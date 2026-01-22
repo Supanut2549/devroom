@@ -475,7 +475,7 @@ canvas {
 }
 
 .logoadmin {  /* ✅ปรับโลโก้หน้าหลัก */
-  width: 280px; /* ✅ ขนาดโลโก้ */
+  width: 500px; /* ✅ ขนาดโลโก้ */
   height: auto;
   margin-bottom: 8px; /* ✅ ระยะห่างจากหัวข้อ */
   display: block;
@@ -621,6 +621,7 @@ html, body {
   overflow-x: hidden;
   box-sizing: border-box;
 }
+
 
 
 
