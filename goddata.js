@@ -338,7 +338,7 @@ document.getElementById("exportBtn").addEventListener("click", exportToExcel);
 toggleBtn.addEventListener("click", () => {
   const isVisible = window.getComputedStyle(bookingWrapper).display !== "none";
   bookingWrapper.style.display = isVisible ? "none" : "block";
-  toggleBtn.textContent = isVisible ? "📂 แสดงข้อมูลการจอง" : "📂 ซ่อนข้อมูลการจอง";
+  toggleBtn.textContent = isVisible ? "📂 กดเพื่อแสดงข้อมูลการจอง" : "📂 ซ่อนข้อมูลการจอง";
 
   if (!isVisible && latestData) {
     renderTable(latestData);
@@ -395,3 +395,4 @@ setInterval(() => {
     });
   });
 }, 60000); // ✅ เช็กทุก 1 นาที
+
