@@ -489,6 +489,20 @@ canvas {
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
+.logo.login { /* ✅ปรับโลโก้หน้าหลัก */
+  width: 240px; /* ✅ ขนาดโลโก้ */
+  height: auto;
+  margin-bottom: 16px; /* ✅ ระยะห่างจากหัวข้อ */
+  display: block;
+  margin-left: auto;
+  margin-right: auto; /* ✅ จัดกลาง */
+}
+
+.logo.login { /* ✅ปรับโลโก้หน้าหลัก */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
 textarea.form-control { /* ✅ปรับหมายเหตุหน้าหลัก */
   resize: vertical; /* ✅ ให้ปรับขนาดได้เฉพาะแนวตั้ง */
   min-height: 100px;
@@ -621,6 +635,7 @@ html, body {
   overflow-x: hidden;
   box-sizing: border-box;
 }
+
 
 
 
