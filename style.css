@@ -498,6 +498,7 @@ canvas {
   display: block;
   margin-left: auto;
   margin-right: auto; /* ✅ จัดกลาง */
+  radius: 16px;
 }
 
 .logo.login { /* ✅ปรับโลโก้หน้าหลัก */
@@ -709,5 +710,6 @@ html, body {
   background: rgba(0,0,0,0.4); /* มืดลง */
   z-index: -1;
 }
+
 
 
