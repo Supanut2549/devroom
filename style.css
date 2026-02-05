@@ -191,7 +191,7 @@ button:hover {
 .page-admin h1 {
   font-size: 28px;
   margin: 0;
-  color: #000000;
+  color: #ffffff;
 }
 
 /* ✅ ปุ่ม logout */
@@ -707,5 +707,6 @@ html, body {
   background: rgba(0,0,0,0.4); /* มืดลง */
   z-index: -1;
 }
+
 
 
