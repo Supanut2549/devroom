@@ -481,7 +481,7 @@ canvas {
   display: block;
   margin-left: 0;
   margin-right: auto; /* ✅ จัดซ้าย */
-  /* margin: 0 0 16px 300px; */
+  margin: 0 0 16px 300px; 
 }
 
 .logoadmin {  /* ✅ปรับโลโก้หน้า แอดมิน */
@@ -680,6 +680,7 @@ html, body {
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
+
 
 
 
